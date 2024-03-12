@@ -1,0 +1,1 @@
+Buat nyimpen file exe kalo ada
