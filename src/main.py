@@ -7,7 +7,7 @@ from src.brute_force import brute_force_process
 print('''Welcome to Bezier Curve Visualization Program
 made by:
 13522015 - Yusuf Ardian Sandi
-13522097 - Ellijiah DarrelShane
+13522097 - Ellijah Darrellshane Suryanegara
       
 Choose the input method:
 1. Terminal
