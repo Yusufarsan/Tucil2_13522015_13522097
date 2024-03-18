@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import time
 
 
 def find_middle(point1, point2):
@@ -27,25 +28,37 @@ def new_set_of_points(points_array):
     return new_points, new_array
 
 
-def algorithm(initial_points, num_of_iterations, index_offset):
+def divideAndConquer(initial_points, num_of_iterations, index_offset):
+    # Calculate execute time
+    start_time = time.time()
+
     if num_of_iterations == 1:
         x_values = [point[0] for point in new_set_of_points(initial_points)[0]]
         y_values = [point[1] for point in new_set_of_points(initial_points)[0]]
         plt.plot(x_values, y_values, marker='.', label=f'Final Graph')
+        plt.pause(0.5)
 
         # Add labels and legend
-        plt.title('Process')
+        plt.title('Divide & Conquer')
         plt.xlabel('X')
         plt.ylabel('Y')
         plt.legend()
         plt.grid(True)
 
-        plt.subplot(1, 2, 2)
+        # Calculate execution time
+        execution_time = (time.time() - start_time) * 1000
+
+        # Display execution time
+        plt.text(0.05, 1.05, f'Execution time: {execution_time:.2f} ms', transform=plt.gca().transAxes)
+
+        plt.subplot(2, 2, 2)
         x_values = [point[0] for point in new_set_of_points(initial_points)[0]]
         y_values = [point[1] for point in new_set_of_points(initial_points)[0]]
         plt.plot(x_values, y_values, label='Final Graph')
+
     else:
         x_values = [point[0] for point in new_set_of_points(initial_points)[0]]
         y_values = [point[1] for point in new_set_of_points(initial_points)[0]]
         plt.plot(x_values, y_values, marker='.', label=f'Iteration #{index_offset}')
-        algorithm(new_set_of_points(initial_points)[1], num_of_iterations - 1, index_offset + 1)
+        plt.pause(0.5)
+        divideAndConquer(new_set_of_points(initial_points)[1], num_of_iterations - 1, index_offset + 1)
