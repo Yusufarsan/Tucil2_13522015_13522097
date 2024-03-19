@@ -153,7 +153,7 @@ def dnc_variation(points, iterations):
 
         temp_idx = index2 + 1
 
-    if isIntersect(arrays[-2], arrays[-1]):
+    if isIntersect(arrays[len(arrays)-2], arrays[len(arrays)-1]):
         for i in range(temp_idx, len(arrays[len(arrays) - 1])):
             x_values.append(arrays[len(arrays) - 1][i][0])
             y_values.append(arrays[len(arrays) - 1][i][1])
