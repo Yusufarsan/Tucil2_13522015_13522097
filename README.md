@@ -1,5 +1,6 @@
 # Tugas Kecil 2 IF2211 Strategi Algoritma 
 Semester II tahun 2023/2024 
+
 Membangun Kurva Bézier dengan Algoritma Titik Tengah berbasis Divide and Conquer 
 
 ## Deskripsi Singkat
@@ -12,8 +13,11 @@ Windows/Linux:
 pip install matplotlib
 ```
 2. Python 3
+
 Windows:
+
 [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
 Linux:
 ```
 sudo apt install python3
@@ -35,4 +39,5 @@ py main.py
 
 ## Identitas Pembuat Program
 Yusuf Ardian Sandi                 13522015
+
 Ellijah Darrelshane Suryanegara    13522097
