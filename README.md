@@ -8,6 +8,7 @@ Kami membuat suatu program yang dapat menerima n buah titik kontrol (x, y) dan b
 
 ## Requirement Program dan Instalasi
 1. Matplotlib
+
 Windows/Linux:
 ```
 pip install matplotlib
