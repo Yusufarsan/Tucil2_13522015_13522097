@@ -1,6 +1,5 @@
 # ini file untuk nge handle pemrosesan data dan berbagai pengolahan lainnya
 
-from typing import List
 import matplotlib.pyplot as plt
 import numpy as np
 import time
@@ -16,7 +15,7 @@ def generate_pascal(n):
 # n = 3
 # print(generate_pascal(n))
 
-def bezier(t: float, control_points: List[tuple[float, float]]) -> tuple[float, float]:
+def bezier(t, control_points):
     '''Get the point from the bezier function with the given t'''
     # Initialize the pascal pattern by using generate_pascal function with n = len(control_points)
     pascal = generate_pascal(len(control_points))
@@ -32,7 +31,7 @@ def bezier(t: float, control_points: List[tuple[float, float]]) -> tuple[float, 
 
     return tuple(result_point)
 
-def brute_force_process (control_points: List[tuple[int, int]], iterate_number: int):
+def brute_force_process (control_points, iterate_number):
     '''Process the brute force method (visualize the bezier curve with the given control points and iterate number)'''
     # Calculate execute time
     start_time = time.time()
@@ -45,18 +44,19 @@ def brute_force_process (control_points: List[tuple[int, int]], iterate_number: 
 
     # show the points, the control points, and time execution
     plt.plot([p[0] for p in points], [p[1] for p in points], 'r-')
-    plt.plot([p[0] for p in control_points], [p[1] for p in control_points], 'bo')
+    plt.plot([p[0] for p in control_points], [p[1] for p in control_points], 'b-')
 
     # Calculate execution time
-    execution_time = time.time() - start_time
-
-    # Display execution time
-    plt.text(0.05, 1.05, f'Execution time: {execution_time:.2f} seconds', transform=plt.gca().transAxes)
+    execution_time = (time.time() - start_time) * 1000
 
     # Show grid
-    plt.grid()
+    plt.title('Brute Force')
+    plt.xlabel(f'Execution time: {execution_time:.2f} ms')
+    plt.ylabel('Y')
+    plt.legend()
+    plt.grid(True)
 
-    plt.show()
+    #plt.show()
 # Test the function
 # control_points = [(414, 130), (254, 164), (308, 306), (498, 320), (405, 464), (522, 269), (613, 476)]
 # iterate_number = 200
