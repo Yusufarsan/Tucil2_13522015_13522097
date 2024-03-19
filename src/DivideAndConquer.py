@@ -37,17 +37,21 @@ def divideAndConquer(initial_points, num_of_iterations, index_offset):
         plt.plot(x_values, y_values, marker='.', label=f'Final Graph')
         plt.pause(0.5)
 
+
         # Calculate execution time
         execution_time = (time.time() - start_time) * 1000
 
         # Add labels and legend
         plt.title('Divide & Conquer')
         plt.xlabel(f'Execution time: {execution_time:.2f} ms')
+
         plt.ylabel('Y')
         plt.legend()
         plt.grid(True)
 
+
         plt.subplot(2, 3, 2)
+
         x_values = [point[0] for point in new_set_of_points(initial_points)[0]]
         y_values = [point[1] for point in new_set_of_points(initial_points)[0]]
         plt.plot(x_values, y_values, label='Final Graph')
@@ -55,6 +59,10 @@ def divideAndConquer(initial_points, num_of_iterations, index_offset):
     else:
         x_values = [point[0] for point in new_set_of_points(initial_points)[0]]
         y_values = [point[1] for point in new_set_of_points(initial_points)[0]]
+        print(f'idx-{index_offset}')
+        for i in range(len(x_values)):
+            print(x_values[i], y_values[i])
         plt.plot(x_values, y_values, marker='.', label=f'Iteration #{index_offset}')
         plt.pause(0.5)
+
         divideAndConquer(new_set_of_points(initial_points)[1], num_of_iterations - 1, index_offset + 1)
