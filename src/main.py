@@ -1,8 +1,11 @@
 # ini file untuk memanggil semua fungsi dari file lain
 # file ini sebagai program utama yang akan dijalankan
 
-from src.masukkan import get_input_terminal, get_input_file
-from src.brute_force import brute_force_process
+from masukkan import get_input_terminal, get_input_file
+from brute_force import brute_force_process
+from DivideAndConquer import divideAndConquer
+from Variation import dnc_variation
+import matplotlib.pyplot as plt
 
 print('''Welcome to Bezier Curve Visualization Program
 made by:
@@ -24,16 +27,31 @@ if input_method == 1:
 else:
     control_points, iterate_number = get_input_file()
 
-# Get process method from the user
-print('''Choose the process method:
-1. Brute Force
-2. Divide and Conquer
-''')
-process_method = int(input("Enter the process method: "))
-print()
+x_values1 = [point[0] for point in control_points]
+y_values1 = [point[1] for point in control_points]
+plt.subplot(2, 3, 1)
 
-# Process the brute force method
-if process_method == 1:
-    brute_force_process(control_points, iterate_number)
-else:
-    print("Error: Divide and Conquer process method is not available")
+# Plotting both graphs on a single figure
+plt.plot(x_values1, y_values1, marker='.', label='Initial Graph')
+plt.pause(0.5)
+divideAndConquer(control_points, iterate_number, 1)
+
+plt.subplot(2, 3, 2)
+plt.plot(x_values1, y_values1, label='Initial Graph')
+# Add labels and legend
+plt.title('D&C Control Graph')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.legend()
+plt.grid(True)
+
+plt.subplot(2, 3, 3)
+brute_force_process(control_points, iterate_number)
+
+plt.subplot(2, 3, 4)
+dnc_variation(control_points, iterate_number)
+
+# Display the combined graph
+plt.suptitle('Bezier Curve')
+plt.tight_layout()
+plt.show()
